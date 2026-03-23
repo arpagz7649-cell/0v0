@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chat Master Tanpa Ribet</title>
+    <style>
+        /* CSS: Bagian ini buat mempercantik tampilan */
+        body { font-family: sans-serif; background: #000; color: #fff; padding: 20px; }
+        #layar-chat { 
+            border: 2px solid #007bff; 
+            height: 300px; 
+            overflow-y: scroll; 
+            padding: 10px; 
+            margin-bottom: 10px;
+            background: #111;
+        }
+        .pesan { margin-bottom: 10px; font-size: 20px; }
+        input { padding: 10px; width: 70%; font-size: 18px; }
+        button { padding: 10px; font-size: 18px; background: #007bff; color: white; border: none; }
+    </style>
+</head>
+<body>
+
+    <h1>CHAT MASTER</h1>
+
+    <div id="layar-chat">
+        <div class="pesan"><i>Sistem: Ketik pesan di bawah...</i></div>
+    </div>
+
+    <input type="text" id="kotak-teks" placeholder="Tulis sesuatu...">
+    <button onclick="kirim()">KIRIM</button>
+
+    <script>
+        // JAVASCRIPT: Ini 'kurir' yang memindahkan teks ke layar
+        function kirim() {
+            var input = document.getElementById('kotak-teks');
+            var layar = document.getElementById('layar-chat');
+            
+            if (input.value != "") {
+                // Tambahkan tulisan ke layar
+                layar.innerHTML += "<div class='pesan'><b>Anda:</b> " + input.value + "</div>";
+                
+                // Kosongkan kotak input lagi
+                input.value = "";
+                
+                // Otomatis scroll ke bawah
+                layar.scrollTop = layar.scrollHeight;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
